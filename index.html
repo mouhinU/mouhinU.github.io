@@ -1,10 +1,575 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>我的个人简介</title>
-</head>
-<body>
-    <h1>欢迎来到我的GitHub个人简介页面</h1>
-    <p>这里是一些关于我的信息。</p>
-</body>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人简历 | [你的名字]</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --primary-dark: #1d4ed8;
+        --text-color: #334155;
+        --text-light: #64748b;
+        --bg-color: #ffffff;
+        --bg-secondary: #f8fafc;
+        --border-color: #e2e8f0;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --transition: all 0.3s ease;
+      }
+
+      .dark-mode {
+        --primary-color: #60a5fa;
+        --primary-dark: #3b82f6;
+        --text-color: #e2e8f0;
+        --text-light: #94a3b8;
+        --bg-color: #0f172a;
+        --bg-secondary: #1e293b;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3),
+          0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Noto Sans SC", "Roboto", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        transition: var(--transition);
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* 头部样式 */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--primary-dark) 100%
+        );
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .title {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 20px;
+      }
+
+      .contact-info {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* 主题切换按钮 */
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+        color: white;
+        font-size: 1.2rem;
+        z-index: 100;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .dark-mode .theme-toggle {
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--text-color);
+      }
+
+      /* 主要内容区域 */
+      .resume-sections {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      @media (max-width: 768px) {
+        .resume-sections {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .section {
+        background-color: var(--bg-color);
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+        margin-bottom: 25px;
+        border: 1px solid var(--border-color);
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      h2 i {
+        font-size: 1.2rem;
+      }
+
+      /* 时间轴样式 */
+      .timeline-item {
+        margin-bottom: 25px;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+      }
+
+      .timeline-date {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+      }
+
+      .timeline-title {
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .timeline-subtitle {
+        color: var(--text-light);
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+      }
+
+      /* 技能样式 */
+      .skill-category {
+        margin-bottom: 20px;
+      }
+
+      .skill-category:last-child {
+        margin-bottom: 0;
+      }
+
+      .skill-category h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: var(--text-color);
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-item {
+        background-color: var(--bg-secondary);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        border: 1px solid var(--border-color);
+      }
+
+      /* 项目样式 */
+      .project-item {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .project-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .project-title {
+        font-weight: 700;
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .project-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .project-link:hover {
+        text-decoration: underline;
+      }
+
+      /* 页脚 */
+      footer {
+        text-align: center;
+        padding: 25px 0;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-top: 30px;
+      }
+
+      /* 打印样式 */
+      @media print {
+        .theme-toggle {
+          display: none;
+        }
+
+        .project-links a {
+          text-decoration: underline;
+        }
+
+        .section {
+          box-shadow: none;
+          border: 1px solid #ddd;
+        }
+
+        footer {
+          border-top: 1px solid #ddd;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 主题切换按钮 -->
+    <button class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- 头部区域 -->
+    <header>
+      <div class="container header-content">
+        <!-- 这里使用一个占位图片，实际使用时请替换 -->
+        <img
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80"
+          alt="个人照片"
+          class="profile-img"
+        />
+        <h1 id="personName">蒙斌</h1>
+        <p class="title" id="personTitle">软件开发工程师 | 技术爱好者</p>
+        <p id="personSummary">
+          拥有5年全栈开发经验，专注于Web技术和用户体验。热衷于开源项目和技术社区贡献。
+        </p>
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span id="personEmail">mouhin1123@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span id="personPhone">+86 159 2633 0615</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a
+              href="https://github.com/mouhinU"
+              target="_blank"
+              style="color: white; text-decoration: none"
+              >github.com/mouhinU</a
+            >
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span id="personLocation">武汉, 中国</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="resume-sections">
+        <!-- 左侧主要区域 -->
+        <div class="left-column">
+          <!-- 工作经历 -->
+          <section class="section">
+            <h2><i class="fas fa-briefcase"></i>工作经历</h2>
+            <div class="timeline-item">
+              <div class="timeline-date">2020年3月 - 至今</div>
+              <div class="timeline-title">高级全栈工程师</div>
+              <div class="timeline-subtitle">ABC科技有限公司</div>
+              <p>
+                负责公司核心产品的全栈开发，主导微服务架构迁移项目，提高系统可扩展性和性能。带领5人前端团队，提升团队开发效率和代码质量。
+              </p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2018年6月 - 2020年2月</div>
+              <div class="timeline-title">前端开发工程师</div>
+              <div class="timeline-subtitle">XYZ互联网公司</div>
+              <p>
+                参与公司多个重要产品的前端开发，使用React和Vue.js构建响应式用户界面。与设计团队紧密合作，实现最佳用户体验。
+              </p>
+            </div>
+          </section>
+
+          <!-- 项目经验 -->
+          <section class="section">
+            <h2><i class="fas fa-code-branch"></i>项目经验</h2>
+            <div class="project-item">
+              <div class="project-title">企业级内容管理系统</div>
+              <p>
+                基于React和Node.js开发的全功能CMS系统，支持多租户、自定义内容类型和可视化编辑。项目采用微服务架构，日均处理请求超过100万次。
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/yourusername/cms-project"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> 查看代码
+                </a>
+                <a
+                  href="https://demo.example.com"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fas fa-external-link-alt"></i> 在线演示
+                </a>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="project-title">智能数据分析平台</div>
+              <p>
+                使用Python和Django开发的数据分析平台，集成机器学习算法进行数据预测。实现数据可视化
+                dashboard，支持实时数据更新和多种导出格式。
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/yourusername/data-analytics"
+                  class="project-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> 查看代码
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- 教育背景 -->
+          <section class="section">
+            <h2><i class="fas fa-graduation-cap"></i>教育背景</h2>
+            <div class="timeline-item">
+              <div class="timeline-date">2014年9月 - 2018年6月</div>
+              <div class="timeline-title">计算机科学与技术 学士</div>
+              <div class="timeline-subtitle">清华大学</div>
+              <p>
+                主修计算机科学，GPA:
+                3.8/4.0。在校期间获得校级优秀毕业生称号，参与多个国家级科研项目。
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- 右侧侧边栏 -->
+        <div class="right-column">
+          <!-- 技能专长 -->
+          <section class="section">
+            <h2><i class="fas fa-tools"></i>技能专长</h2>
+            <div class="skill-category">
+              <h3>前端技术</h3>
+              <div class="skill-list">
+                <span class="skill-item">HTML5/CSS3</span>
+                <span class="skill-item">JavaScript/ES6+</span>
+                <span class="skill-item">React</span>
+                <span class="skill-item">Vue.js</span>
+                <span class="skill-item">TypeScript</span>
+                <span class="skill-item">Webpack</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>后端技术</h3>
+              <div class="skill-list">
+                <span class="skill-item">Node.js</span>
+                <span class="skill-item">Python</span>
+                <span class="skill-item">Java</span>
+                <span class="skill-item">MySQL</span>
+                <span class="skill-item">MongoDB</span>
+                <span class="skill-item">Redis</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>工具与部署</h3>
+              <div class="skill-list">
+                <span class="skill-item">Git</span>
+                <span class="skill-item">Docker</span>
+                <span class="skill-item">Kubernetes</span>
+                <span class="skill-item">AWS</span>
+                <span class="skill-item">Jenkins</span>
+                <span class="skill-item">Linux</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- 语言能力 -->
+          <section class="section">
+            <h2><i class="fas fa-language"></i>语言能力</h2>
+            <div class="skill-category">
+              <div class="skill-list">
+                <span class="skill-item">中文 (母语)</span>
+                <span class="skill-item">英语 (流利)</span>
+                <span class="skill-item">日语 (基础)</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- 证书与奖项 -->
+          <section class="section">
+            <h2><i class="fas fa-award"></i>证书与奖项</h2>
+            <div class="timeline-item">
+              <div class="timeline-date">2021年</div>
+              <div class="timeline-title">AWS解决方案架构师 - 专业级</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2020年</div>
+              <div class="timeline-title">公司年度技术创新奖</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2019年</div>
+              <div class="timeline-title">全国软件设计大赛一等奖</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+      <div class="container">
+        <p>
+          最后更新: <span id="currentDate"></span> | 本简历使用GitHub Pages托管
+        </p>
+        <p>
+          © <span id="currentYear"></span> <span id="footerName">张三</span>.
+          保留所有权利.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // 设置当前日期和年份
+      document.getElementById("currentDate").textContent =
+        new Date().toLocaleDateString("zh-CN");
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+      // 主题切换功能
+      const themeToggle = document.getElementById("themeToggle");
+      const icon = themeToggle.querySelector("i");
+
+      // 检查本地存储中的主题偏好
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+      }
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+          icon.classList.remove("fa-moon");
+          icon.classList.add("fa-sun");
+          localStorage.setItem("theme", "dark");
+        } else {
+          icon.classList.remove("fa-sun");
+          icon.classList.add("fa-moon");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // 打印简历功能（可选扩展）
+      function printResume() {
+        window.print();
+      }
+
+      // 可以添加更多交互功能，如PDF导出等
+      console.log("个人简历模板加载完成！请根据需要修改内容。");
+    </script>
+  </body>
 </html>

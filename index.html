@@ -10,8 +10,27 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <!-- 导出功能依赖库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2docx/dist/html2docx.min.js"></script>
     </head>
   <body>
+    <!-- 导出功能按钮 -->
+    <div class="export-menu">
+      <button class="export-btn" id="exportBtn" aria-label="导出简历">
+        <i class="fas fa-download"></i>
+        <span>导出</span>
+      </button>
+      <div class="export-dropdown" id="exportDropdown" style="display: none;">
+        <button class="export-option" id="exportPDF">
+          <i class="fas fa-file-pdf"></i> 导出为 PDF
+        </button>
+        <button class="export-option" id="exportWord">
+          <i class="fas fa-file-word"></i> 导出为 Word
+        </button>
+      </div>
+    </div>
+
     <!-- 深色/浅色模式切换按钮 -->
     <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
       <i class="fas fa-moon"></i>
@@ -24,7 +43,7 @@
       <p
         style="max-width: 1024px; margin: 0 auto; color: var(--text-light)"
       >
-        拥有10年以上企业级应用开发经验,专注于高可用、高性能分布式系统架构。具备从0到1构建数据化平台及主导大型系统重构的攻坚能力。出色的跨团队协作与项目管理能力,能有效推动技术方案落地并解决业务痛点。热衷于技术分享与团队培养,善于通过Code Review和指导提升团队整体技术能力。始终秉持从客户视角出发的理念,追求技术为业务创造实际价值。
+        资深技术专家,专注于企业级业务系统研发、架构设计与平台化建设,擅长从0到1构建高可用,高性能的数据化平台,并主导多个系统的重构与攻坚,具备出色的跨团队协作与项目管理能力,推动技术驱动业务增长
       </p>
       <div class="contact-bar">
         <a href="mailto:mouhin@126.com" class="contact-item" id="emailLink">
@@ -222,6 +241,19 @@
               2017,2018,2019,2020年获得
             </div>
           </div>
+      </section>
+
+      <!-- 自我评价 -->
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-heart"></i>自我评价</h2>
+        <ul>
+          <li>拥有<strong>10年以上</strong>企业级应用开发经验，专注于高可用、高性能分布式系统架构。</li>
+          <li>具备从0到1构建数据化平台及主导大型系统重构的<strong>攻坚能力</strong>。</li>
+          <li>出色的<strong>跨团队协作与项目管理能力</strong>，能有效推动技术方案落地并解决业务痛点。</li>
+          <li>热衷于技术分享与团队培养，善于通过Code Review和指导提升团队整体技术能力。</li>
+          <li>始终秉持<strong>从客户视角出发</strong>的理念，追求技术为业务创造实际价值。</li>
+        </ul>
+      </section>
     </main>
 
     <footer>
@@ -235,6 +267,152 @@
     </footer>
 
     <script>
+      // 导出功能
+      const exportBtn = document.getElementById("exportBtn");
+      const exportDropdown = document.getElementById("exportDropdown");
+      const exportPDFBtn = document.getElementById("exportPDF");
+      const exportWordBtn = document.getElementById("exportWord");
+
+      // 切换导出菜单显示
+      exportBtn.addEventListener("click", () => {
+        exportDropdown.style.display =
+          exportDropdown.style.display === "none" ? "block" : "none";
+      });
+
+      // 点击页面其他地方关闭菜单
+      document.addEventListener("click", (e) => {
+        if (
+          !e.target.closest(".export-menu") &&
+          exportDropdown.style.display === "block"
+        ) {
+          exportDropdown.style.display = "none";
+        }
+      });
+
+      // 导出为PDF
+      exportPDFBtn.addEventListener("click", () => {
+        const element = document.documentElement;
+        const opt = {
+          margin: 10,
+          filename: "蒙斌-个人简历.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { orientation: "portrait", unit: "mm", format: "a4" },
+          pagebreak: { mode: ["avoid-all", "css", "legacy"] },
+        };
+
+        // 获取当前主题
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        // PDF导出前临时切换到浅色主题以获得更好的打印效果
+        if (currentTheme === "dark") {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+
+        html2pdf().set(opt).from(element).save().then(() => {
+          // 导出后恢复主题
+          if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+          exportDropdown.style.display = "none";
+        });
+      });
+
+      // 导出为Word
+      exportWordBtn.addEventListener("click", async () => {
+        try {
+          // 获取当前主题
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          
+          // 临时切换到浅色主题
+          if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "light");
+          }
+
+          // 克隆整个页面
+          const element = document.documentElement.cloneNode(true);
+          
+          // 移除不需要的元素
+          const elementsToRemove = element.querySelectorAll(
+            ".theme-toggle, .export-menu, footer"
+          );
+          elementsToRemove.forEach((el) => el.remove());
+
+          // 添加样式到导出内容
+          const styleElement = document.createElement("style");
+          styleElement.textContent = `
+            * { margin: 0; padding: 0; }
+            body { font-family: "Noto Sans SC", sans-serif; line-height: 1.7; color: #333; }
+            header { text-align: center; padding: 20px 0; border-bottom: 2px solid #eaeaea; margin-bottom: 20px; }
+            .name { font-size: 2.5rem; font-weight: bold; margin-bottom: 10px; }
+            .title { font-size: 1.2rem; color: #666; margin-bottom: 10px; }
+            .contact-bar { margin: 15px 0; font-size: 0.95rem; }
+            .contact-item { margin: 0 10px; }
+            .section { margin-bottom: 30px; }
+            .section-title { font-size: 1.4rem; font-weight: bold; color: #2c3e50; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eaeaea; }
+            .item { margin-bottom: 20px; }
+            .item-header { margin-bottom: 10px; }
+            .item-title { font-weight: bold; font-size: 1.1rem; }
+            .item-subtitle { font-style: italic; color: #666; }
+            .item-date { color: #999; font-size: 0.9rem; }
+            .item-description { margin: 10px 0; color: #333; }
+            .item-description p { margin-bottom: 10px; }
+            .item-description h4 { font-weight: bold; margin: 10px 0 5px; }
+            .tech-stack { margin-top: 10px; font-size: 0.9rem; }
+            .tech-tag { display: inline-block; background: #f0f0f0; padding: 3px 8px; margin: 2px 4px 2px 0; border-radius: 3px; }
+            ul { margin-left: 20px; }
+            li { margin-bottom: 8px; }
+            .certifications { margin-top: 10px; }
+            .cert-item { margin-bottom: 10px; }
+          `;
+          element.head.appendChild(styleElement);
+
+          // 获取HTML字符串
+          const htmlString = element.documentElement.outerHTML;
+
+          // 使用html2docx导出
+          if (window.html2docx) {
+            const converted = window.html2docx.convert(htmlString, {
+              fileName: "蒙斌-个人简历",
+            });
+            
+            // 触发下载
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(converted);
+            link.download = "蒙斌-个人简历.docx";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          } else {
+            // 备选方案：如果html2docx不可用，导出为HTML
+            const blob = new Blob([htmlString], { type: "application/msword" });
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "蒙斌-个人简历.doc";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+
+          // 恢复原主题
+          if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+
+          exportDropdown.style.display = "none";
+        } catch (error) {
+          console.error("导出失败:", error);
+          alert("导出失败，请重试或尝试使用PDF导出");
+          // 恢复原主题
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          if (currentTheme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+          }
+        }
+      });
+
       // 主题切换功能
       const themeToggle = document.getElementById("themeToggle");
       const themeIcon = themeToggle.querySelector("i");

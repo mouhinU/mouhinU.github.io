@@ -103,7 +103,7 @@
               <h4>成本采购系统与供应商管理 (2023.6 - 2025.10)</h4>
               <p>项目目标: <strong>守合规、保效率</strong></p>
               <p>
-                作为外部团队开发的系统,接手主导系统的整体架构升级，并重构核心业务，提升了系统处理高并发场景下的稳定性和可用性。
+                作为一个外部团队开发的系统,接手后主导系统的整体架构升级，并重构核心业务，提升了系统处理高并发场景下的稳定性和可用性。
                 针对历史系统不足进行深度重构与优化，解决了多个性能瓶颈，使系统响应时间降低。
                 从扩展性、安全性角度提出改进方案，提升了代码质量和团队整体技术水平。
                 主动协调产品、测试及业务方，从客户视角优化产品流程，提升了用户满意度。
@@ -291,8 +291,8 @@
       <section class="section">
         <h2 class="section-title"><i class="fas fa-heart"></i>自我评价</h2>
         <ul>
-          <li>拥有<strong>10年以上</strong>企业级应用开发经验，专注于高可用、高性能分布式系统架构。</li>
-          <li>具备从0到1构建数据化平台及主导大型系统重构的<strong>攻坚能力</strong>。</li>
+          <li>拥有<strong>10年</strong>企业级应用开发经验，专注于高可用、高性能分布式系统架构。</li>
+          <li>具备<strong>从0到1构建</strong>数据化平台及主导大型系统重构的<strong>攻坚能力</strong>。</li>
           <li>出色的<strong>跨团队协作与项目管理能力</strong>，能有效推动技术方案落地并解决业务痛点。</li>
           <li>始终秉持<strong>从客户视角出发</strong>的理念，追求技术为业务创造实际价值。</li>
         </ul>
@@ -313,7 +313,6 @@
       // 主题切换功能
       const themeToggle = document.getElementById("themeToggle");
       const themeIcon = themeToggle.querySelector("i");
-
       // 初始化主题
       const savedTheme = localStorage.getItem("theme") || "light";
       document.documentElement.setAttribute("data-theme", savedTheme);
@@ -335,7 +334,6 @@
       const now = new Date();
       document.getElementById("currentYear").textContent = now.getFullYear();
       document.getElementById("currentMonth").textContent = now.getMonth() + 1;
-
       // 添加打印简历的快捷键提示
       document.addEventListener("keydown", (e) => {
         if (e.ctrlKey && e.key === "p") {

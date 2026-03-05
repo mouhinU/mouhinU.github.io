@@ -168,9 +168,11 @@ header {
 
 /* 经历项目通用样式 */
 .item {
-  margin-bottom: 28px;
-  padding-bottom: 25px;
-  border-bottom: 1px dashed var(--border);
+  margin-bottom: 35px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
 }
 
 .item:last-of-type {
@@ -461,6 +463,9 @@ footer {
 
 @media print {
   .theme-toggle {
+    display: none;
+  }
+  footer {
     display: none;
   }
   body {

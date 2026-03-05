@@ -17,6 +17,11 @@
       <i class="fas fa-moon"></i>
     </button>
 
+    <!-- PDF导出按钮 -->
+    <button class="pdf-export" id="pdfExport" aria-label="导出PDF">
+      <i class="fas fa-file-pdf"></i>
+    </button>
+
     <!-- 页头 -->
     <header>
       <h1 class="name">蒙斌</h1>
@@ -329,6 +334,89 @@
           newTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
         localStorage.setItem("theme", newTheme);
       });
+
+      // PDF导出功能（纯JavaScript实现方案）
+      document.getElementById("pdfExport").addEventListener("click", function() {
+        // 先弹出缩放提示框
+        alert('提示：如要打印,请在在打印设置中，建议选择"缩放50%"以获得最佳PDF效果。');
+        
+        const pdfExportBtn = document.getElementById("pdfExport");
+        const themeToggleBtn = document.getElementById("themeToggle");
+        
+        // 显示加载提示
+        const loadingToast = document.createElement('div');
+        loadingToast.innerHTML = '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 15px 25px; border-radius: 5px; z-index: 1000; font-size: 14px;">正在生成PDF，请稍候...</div>';
+        document.body.appendChild(loadingToast);
+        
+        // 临时隐藏按钮
+        pdfExportBtn.style.display = "none";
+        themeToggleBtn.style.display = "none";
+        
+        // 强制使用亮色主题以确保PDF效果
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        document.documentElement.setAttribute("data-theme", "light");
+        
+        setTimeout(function() {
+          // 使用浏览器打印功能生成PDF
+          window.print();
+          
+          // 恢复原始状态
+          setTimeout(function() {
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            pdfExportBtn.style.display = "block";
+            themeToggleBtn.style.display = "block";
+            document.body.removeChild(loadingToast);
+          }, 1000);
+        }, 500);
+      });
+      
+      // 增强的PDF导出功能（使用html2pdf库作为备选）
+      function advancedPDFExport() {
+        if (typeof html2pdf === 'undefined') {
+          alert('高级PDF导出功能需要网络连接，将使用浏览器打印功能');
+          document.getElementById("pdfExport").click();
+          return;
+        }
+        
+        const pdfExportBtn = document.getElementById("pdfExport");
+        const themeToggleBtn = document.getElementById("themeToggle");
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        
+        // 隐藏按钮并设置亮色主题
+        pdfExportBtn.style.display = "none";
+        themeToggleBtn.style.display = "none";
+        document.documentElement.setAttribute("data-theme", "light");
+        
+        const element = document.body;
+        const opt = {
+          margin: 10,
+          filename: '蒙斌-Java资深软件开发工程师-简历_' + new Date().toISOString().slice(0, 10) + '.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { 
+            scale: 2, 
+            useCORS: true,
+            letterRendering: true,
+            allowTaint: true
+          },
+          jsPDF: { 
+            unit: 'mm', 
+            format: 'a4', 
+            orientation: 'portrait',
+            compress: true
+          }
+        };
+        
+        html2pdf().set(opt).from(element).save().then(function() {
+          // 恢复原始状态
+          document.documentElement.setAttribute("data-theme", currentTheme);
+          pdfExportBtn.style.display = "block";
+          themeToggleBtn.style.display = "block";
+        }).catch(function(error) {
+          console.error('PDF导出失败:', error);
+          alert('PDF导出失败，将使用浏览器打印功能');
+          document.getElementById("pdfExport").click();
+        });
+      }
 
       // 自动更新页脚年份和月份
       const now = new Date();

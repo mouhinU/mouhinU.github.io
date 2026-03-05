@@ -69,6 +69,34 @@ body {
   transform: scale(1.05);
 }
 
+/* PDF导出按钮 */
+.pdf-export {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text);
+  z-index: 100;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.pdf-export:hover {
+  transform: scale(1.05);
+  background: var(--accent);
+  color: orange;
+  border-color: var(--accent);
+}
+
 header {
   text-align: center;
   padding: 60px 0 40px;

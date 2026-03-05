@@ -415,11 +415,35 @@ footer {
   border-radius: var(--radius);
   padding: 15px;
   margin-bottom: 15px;
-  background-color: var(--bg-alt);
+  background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
+  box-shadow: 0 2px 12px rgba(64, 60, 59, 0.1);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--border);
+  border-radius: var(--radius) 0 0 var(--radius);
+}
+
+.project-section:hover {
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.15);
+  transform: translateY(-2px);
 }
 
 .project-section h4 {
   margin-top: 0;
+  padding-left: 10px;
+  color: #000 !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
 }
 
 /* 证书项目样式 */

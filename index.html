@@ -4,360 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>蒙斌 - Java资深软件开发工程师 | 个人简历</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet"  href="all.min.css"/>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Source+Code+Pro:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-    <style>
-      :root {
-        --primary: #2c3e50;
-        --secondary: #e74c3c;
-        --accent: #3498db;
-        --text: #333;
-        --text-light: #666;
-        --bg: #fff;
-        --bg-alt: #f8f9fa;
-        --border: #eaeaea;
-        --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        --radius: 8px;
-        --transition: all 0.3s ease;
-        --java-red: #e74c3c;
-        --spring-green: #6db33f;
-      }
-
-      [data-theme="dark"] {
-        --primary: #ecf0f1;
-        --secondary: #e74c3c;
-        --accent: #3498db;
-        --text: #f0f0f0;
-        --text-light: #b0b0b0;
-        --bg: #1a1a2e;
-        --bg-alt: #16213e;
-        --border: #2d3748;
-        --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        --java-red: #e74c3c;
-        --spring-green: #6db33f;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Noto Sans SC", "Source Code Pro", sans-serif;
-        line-height: 1.7;
-        color: var(--text);
-        background-color: var(--bg);
-        transition: var(--transition);
-        padding: 20px;
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-
-      /* 头部和主题切换 */
-      .theme-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--bg-alt);
-        border: 1px solid var(--border);
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        color: var(--text);
-        z-index: 100;
-        box-shadow: var(--shadow);
-      }
-
-      .theme-toggle:hover {
-        transform: scale(1.05);
-      }
-
-      header {
-        text-align: center;
-        padding: 60px 0 40px;
-        border-bottom: 2px solid var(--border);
-        margin-bottom: 40px;
-      }
-
-      .name {
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 10px;
-        letter-spacing: -0.5px;
-      }
-
-      .title {
-        font-size: 1.5rem;
-        color: var(--java-red);
-        margin-bottom: 25px;
-        font-weight: 600;
-        position: relative;
-        display: inline-block;
-        padding-bottom: 10px;
-      }
-
-      .title:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 3px;
-        background: var(--java-red);
-        border-radius: 2px;
-      }
-
-      .contact-bar {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 25px;
-        margin-top: 20px;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--text-light);
-        text-decoration: none;
-        font-size: 0.95rem;
-      }
-
-      .contact-item:hover {
-        color: var(--accent);
-      }
-
-      /* 主要内容区块 */
-      .section {
-        background: var(--bg);
-        padding: 30px;
-        margin-bottom: 30px;
-        border-radius: var(--radius);
-        border-left: 4px solid var(--secondary);
-        box-shadow: var(--shadow);
-      }
-
-      .section-title {
-        font-size: 1.6rem;
-        color: var(--primary);
-        margin-bottom: 25px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .section-title i {
-        color: var(--secondary);
-      }
-
-      /* remove bullets and left padding for skills/unordered lists within sections */
-      .section ul {
-        list-style: none;
-        padding-left: 0;
-        margin-left: 0;
-      }
-
-      /* 经历项目通用样式 */
-      .item {
-        margin-bottom: 28px;
-        padding-bottom: 25px;
-        border-bottom: 1px dashed var(--border);
-      }
-
-      .item:last-of-type {
-        margin-bottom: 0;
-        border-bottom: none;
-      }
-
-      .item-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        margin-bottom: 8px;
-      }
-
-      .item-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--primary);
-      }
-
-      .item-subtitle {
-        font-size: 1rem;
-        color: var(--secondary);
-        font-weight: 500;
-        margin-top: 3px;
-      }
-
-      .item-date {
-        color: var(--text-light);
-        font-size: 0.9rem;
-        background: var(--bg-alt);
-        padding: 4px 10px;
-        border-radius: 20px;
-        white-space: nowrap;
-      }
-
-      .item-description {
-        color: var(--text);
-        margin-top: 10px;
-      }
-
-      .item-description p {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .item-description strong {
-        font-weight: 600;
-        color: var(--primary);
-      }
-
-      .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 12px;
-      }
-
-      .tech-tag {
-        background: var(--bg-alt);
-        padding: 4px 10px;
-        border-radius: 15px;
-        font-size: 0.85rem;
-        border: 1px solid var(--border);
-        font-family: "Source Code Pro", monospace;
-      }
-
-      .java-tag {
-        background-color: rgba(231, 76, 60, 0.1);
-        border-color: var(--java-red);
-        color: var(--java-red);
-      }
-
-      .spring-tag {
-        background-color: rgba(109, 179, 63, 0.1);
-        border-color: var(--spring-green);
-        color: var(--spring-green);
-      }
-
-      /* 技能标签 */
-      .skills-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-      }
-
-      .skill-tag {
-        background: var(--bg-alt);
-        padding: 10px 20px;
-        border-radius: 30px;
-        font-size: 0.95rem;
-        border: 1px solid var(--border);
-        transition: var(--transition);
-      }
-
-      .skill-tag:hover {
-        background: var(--secondary);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      .skill-category {
-        width: 100%;
-        margin-bottom: 15px;
-        font-weight: 600;
-        color: var(--primary);
-        font-size: 1.1rem;
-      }
-
-      /* 证书部分 */
-      .certifications {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-      }
-
-      .cert-item {
-        background: var(--bg-alt);
-        padding: 15px;
-        border-radius: var(--radius);
-        border-left: 3px solid var(--accent);
-      }
-
-      /* 页脚 */
-      footer {
-        text-align: center;
-        padding: 30px 0;
-        margin-top: 40px;
-        color: var(--text-light);
-        font-size: 0.9rem;
-        border-top: 1px solid var(--border);
-      }
-
-      /* 响应式调整 */
-      @media (max-width: 768px) {
-        body {
-          padding: 15px;
-        }
-        .name {
-          font-size: 2.3rem;
-        }
-        .title {
-          font-size: 1.2rem;
-        }
-        .contact-bar {
-          gap: 15px;
-        }
-        .section {
-          padding: 20px;
-        }
-        .item-header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 5px;
-        }
-        .item-date {
-          align-self: flex-start;
-        }
-        .certifications {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media print {
-        .theme-toggle {
-          display: none;
-        }
-        body {
-          padding: 0;
-          box-shadow: none;
-        }
-        .section {
-          box-shadow: none;
-          border: 1px solid #ddd;
-        }
-      }
-    </style>
-  </head>
+    <link rel="stylesheet" href="styles.css" />
+    </head>
   <body>
     <!-- 深色/浅色模式切换按钮 -->
     <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
@@ -369,25 +22,23 @@
       <h1 class="name">蒙斌</h1>
       <p class="title">Java资深软件开发工程师</p>
       <p
-        id="personSummary"
-        style="max-width: 740px; margin: 0 auto; color: var(--text-light)"
+        style="max-width: 1024px; margin: 0 auto; color: var(--text-light)"
       >
-        拥有10年以上企业级应用开发经验，专注于高可用、高性能分布式系统架构。具备从0到1构建数据化平台及主导大型系统重构的攻坚能力。出色的跨团队协作与项目管理能力，能有效推动技术方案落地并解决业务痛点。热衷于技术分享与团队培养，善于通过Code Review和指导提升团队整体技术能力。始终秉持从客户视角出发的理念，追求技术为业务创造实际价值。
+        拥有10年以上企业级应用开发经验,专注于高可用、高性能分布式系统架构。具备从0到1构建数据化平台及主导大型系统重构的攻坚能力。出色的跨团队协作与项目管理能力,能有效推动技术方案落地并解决业务痛点。热衷于技术分享与团队培养,善于通过Code Review和指导提升团队整体技术能力。始终秉持从客户视角出发的理念,追求技术为业务创造实际价值。
       </p>
       <div class="contact-bar">
-        <a href="mailto:mouhin@126.com" class="contact-item">
-          <i class="fas fa-envelope"></i> mouhin@126.com
+        <a href="mailto:mouhin@126.com" class="contact-item" id="emailLink">
+          <i class="fas fa-envelope"></i>  mouhin@126.com
         </a>
         <a href="tel:+8615926330615" class="contact-item">
-          <i class="fas fa-phone"></i> +86 159 2633 0615
+          <i class="fas fa-phone"></i>+86 159 2633 0615
         </a>
         <a
           href="https://github.com/mouhinU"
           target="_blank"
           class="contact-item"
         >
-          <i class="fab fa-github"></i>github.com/mouhinU
-        </a>
+        <i class="fab fa-github"></i>github.com/mouhinU </a>
         <span class="contact-item">
           <i class="fas fa-map-marker-alt"></i> 湖北武汉
         </span>
@@ -401,8 +52,19 @@
           <i class="fas fa-bullseye"></i>求职意向
         </h2>
         <div class="item">
-          <div class="item-description">
-            <p><strong>职位:</strong> JAVA资深架构师 / 技术经理 / 项目Leader.  <strong>薪资:</strong> 15-25K/月.  <strong>到岗时间:</strong> 一月内/面议 </p>
+          <div class="item-description job-info">
+            <div class="job-item">
+              <strong>职位:</strong>
+              <span>Java资深软件开发工程师 / 技术经理 / 项目Leader</span>
+            </div>
+            <div class="job-item">
+              <strong>薪资:</strong>
+              <span>15-25K/月</span>
+            </div>
+            <div class="job-item">
+              <strong>到岗时间:</strong>
+              <span>一月内/面议</span>
+            </div>
           </div>
         </div>
       </section>
@@ -413,8 +75,8 @@
         <div class="item">
           <div class="item-header">
             <div>
-              <div class="item-title">阿里巴巴集团 | 资深技术专家| REOS契筑平台</div>
-              <div class="item-subtitle">项目Leader / 核心开发 /架构设计</div>
+              <div class="item-title">REOS契筑平台 | 资深技术专家 | 阿里巴巴集团 </div>
+              <div class="item-subtitle">项目Leader / 核心研发 /架构设计</div>
             </div>
             <div class="item-date">2020.01 - 2025.11</div>
           </div>
@@ -439,8 +101,8 @@
         <div class="item">
           <div class="item-header">
             <div>
-              <div class="item-title">阿里巴巴集团| 技术专家| 智慧园区</div>
-              <div class="item-subtitle">核心开发 / 项目Leader</div>
+              <div class="item-title">智慧园区 | 技术专家 | 阿里巴巴集团 </div>
+              <div class="item-subtitle">核心研发 / 项目Leader</div>
             </div>
             <div class="item-date">2016.07 - 2019.12</div>
           </div>
@@ -465,13 +127,13 @@
         <div class="item">
           <div class="item-header">
             <div>
-              <div class="item-title">方正国际软件（武汉）有限公司| JAVA高级软件工程师 |早期项目经历 (海外资讯类)</div>
+              <div class="item-title">早期项目经历 (海外资讯、新闻、商城类) | JAVA高级软件工程师 | 方正国际软件（武汉）有限公司 </div>
               <div class="item-subtitle">全栈/服务开发</div>
             </div>
             <div class="item-date">2012.07 - 2016.07</div>
           </div>
           <div class="item-description">
-            <p>涉及每日新闻、朝日新闻等多个项目的开发与维护，积累了多语言环境下的开发与系统运维经验。负责项目业务流程梳理、文档迭代及需求对接，保障项目平稳运行。处理跨语言系统间的通信与文件解析（C#/Java），解决数据交互难题。负责系统性能优化、Bug修复及运维工具开发（C语言），积累了宝贵的多语言问题排查经验。</p>
+            <p>涉及每日新闻、朝日新闻,Epoch贩卖店等多个项目的开发与维护，积累了多语言环境下的开发与系统运维经验。负责项目业务流程梳理、文档迭代及需求对接，保障项目平稳运行。处理跨语言系统间的通信与文件解析（C#/Java），解决数据交互难题。负责系统性能优化、Bug修复及运维工具开发（C语言），积累了宝贵的多语言问题排查经验。</p>
           </div>
           <div class="tech-stack">
             <span class="tech-tag java-tag">Java</span>
@@ -486,10 +148,10 @@
       <section class="section">
         <h2 class="section-title"><i class="fas fa-tools"></i>专业技能</h2>
         <ul>
-          <li><strong>核心语言与框架</strong>: Java, Spring Boot, Spring MVC, MyBatis, Webx, Struts</li>
-          <li><strong>中间件与存储</strong>: MySQL, Redis, MongoDB, RocketMQ, HSF (阿里), Diamond (阿里), Tair (阿里)</li>
+          <li><strong>核心语言与框架</strong>: Java, Spring Boot, Spring MVC, MyBatis</li>
+          <li><strong>中间件与存储</strong>: MySQL, Redis, MongoDB, RocketMQ, HSF (Dubbo)</li>
           <li><strong>架构与云原生</strong>: 高可用/高性能系统设计，分布式服务架构 (HSF/EDAS)，对象存储 (OSS)，云原生技术实践 (阿里云)</li>
-          <li><strong>其他语言与工具</strong>: C# (客户端开发), C (运维工具), Oracle, Git, Maven</li>
+          <li><strong>其他语言与工具</strong>: C# (客户端开发), C (运维工具),Go (服务升级), Oracle, Git, Maven</li>
           <li><strong>软技能</strong>: 跨团队协作、项目管理、技术团队指导 (Code Review)、需求分析与痛点解决、系统重构与优化</li>
         </ul>
       </section>
@@ -501,21 +163,17 @@
         <div class="item">
           <div class="item-header">
             <div>
-              <div class="item-title">武汉大学</div>
-              <div class="item-subtitle">行政管理</div>
+              <div>武汉大学 <span style="color: var(--text-light); margin: 0 2px;">|</span> 行政管理</div>
             </div>
-            <div class="item-date">2018年毕业</div>
+            <div class="item-date">2016~2018</div>
           </div>
-        </div>
-        <div class="item">
           <div class="item-header">
             <div>
-              <div class="item-title">湖北民族学院</div>
-              <div class="item-subtitle">计算机科学与技术</div>
+              <div>湖北民族学院 <span style="color: var(--text-light); margin: 0 2px;">|</span> 计算机科学与技术</div>
             </div>
-            <div class="item-date">2012年毕业</div>
+            <div class="item-date">2009~2012</div>
           </div>
-        </div>
+        </div>         
       </section>
 
       <!-- 证书与荣誉 -->
@@ -524,7 +182,7 @@
         <div class="certifications">
           <div class="cert-item">
             <div style="font-weight: 600; color: var(--primary)">
-              PMP项目管理专业人士认证
+              PMP项目管理专业人士认证、CSPM2
             </div>
             <div
               style="
@@ -612,7 +270,7 @@
         }
       });
 
-      console.log("蒙斌的个人简历已加载。预祝求职顺利！");
+      console.log("个人简历已加载!");
     </script>
   </body>
 </html>

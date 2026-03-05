@@ -394,6 +394,47 @@ footer {
   }
 }
 
+/* 项目成果列表样式 */
+.project-achievements {
+  margin: 10px 0 15px 20px;
+  list-style-type: none;
+}
+
+.project-achievements li {
+  margin-bottom: 8px;
+}
+
+.project-achievements i {
+  color: var(--secondary);
+  margin-right: 8px;
+}
+
+/* 项目分块样式 */
+.project-section {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: var(--bg-alt);
+}
+
+.project-section h4 {
+  margin-top: 0;
+}
+
+/* 证书项目样式 */
+.cert-description {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* 其他 */
+.highlight-separator {
+  color: var(--text-light);
+  margin: 0 2px;
+}
+
 @media print {
   .theme-toggle {
     display: none;

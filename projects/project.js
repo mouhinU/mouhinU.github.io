@@ -52,27 +52,31 @@ function createProjectElement(phase, index) {
   let phaseHtml = "";
   if (phase.projects && phase.projects.length > 0) {
     phaseHtml = phase.projects
-      .map((proj) => {
-        // let targetHtml = proj.target
-        //   ? `<p><strong>项目目标:</strong> ${proj.target}</p>`
+      .map((project) => {
+        //  不显示这块内容了，感觉没什么意义，毕竟项目目标和背景有点重复了
+        // let targetHtml = project.target
+        //   ? `<p><strong>项目目标:</strong> ${project.target}</p>`
         //   : "";
         let targetHtml = "";
         let achievementsHtml =
-          proj.achievement && proj.achievement.length > 0
+          project.achievements && project.achievements.length > 0
             ? `<p><strong>项目成果:</strong></p>
             <ul class="project-achievements">
-              ${proj.achievement
-                .map((ach) => `<li><i class="fas fa-check"></i>${ach}</li>`)
+              ${project.achievements
+                .map(
+                  (achievement) =>
+                    `<li><i class="fas fa-check"></i>${achievement}</li>`,
+                )
                 .join("")}
             </ul>`
             : "";
 
         return `
         <div class="project-section">
-          <h4>${proj.name}</h4>
+          <h4>${project.name}</h4>
           ${targetHtml}
-          <p><strong>项目背景:</strong> ${proj.background}</p>
-          <p><strong>工作职责:</strong> ${proj.duty}</p>
+          <p><strong>项目背景:</strong> ${project.background}</p>
+          <p><strong>工作职责:</strong> ${project.duty}</p>
           ${achievementsHtml}
         </div>
       `;

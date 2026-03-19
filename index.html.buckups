@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>蒙斌 - Java资深软件开发工程师 | 个人简历</title>
+    <link rel="stylesheet"  href="all.min.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Source+Code+Pro:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    </head>
+  <body>
+    <!-- 深色/浅色模式切换按钮 -->
+    <button class="theme-toggle" id="themeToggle" aria-label="切换主题">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- PDF导出按钮 -->
+    <button class="pdf-export" id="pdfExport" aria-label="导出PDF">
+      <i class="fas fa-file-pdf"></i>
+    </button>
+
+    <!-- 页头 -->
+    <header>
+      <h1 class="name">蒙斌</h1>
+      <p class="title">Java资深软件开发工程师</p>
+      <p
+        style="max-width: 1024px; margin: 0 auto; color: var(--text-light)"
+      >
+        资深架构师与技术管理者，拥有10年企业级分布式系统架构设计和开发经验、3年以上相关管理经验。精通微服务架构、云原生技术、高可用系统设计，擅长从0到1构建支撑亿级用户的数字化平台。具备丰富的大型系统重构与性能优化经验，曾主导多个产品的技术及演进。善于技术团队管理与跨部门协作，推动技术驱动业务创新与增长。
+      </p>
+      <div class="contact-bar">
+        <a href="tel:+8615926330615" class="contact-item">
+          <i class="fas fa-phone"></i>+86 159 2633 0615
+        </a>
+        <a href="mailto:mouhin@126.com" class="contact-item" id="emailLink">
+          <i class="fas fa-envelope"></i>  mouhin@126.com
+        </a>
+        <a
+          href="https://mouhinu.github.io/"
+          target="_blank"
+          class="contact-item"
+        >
+        <i class="fab fa-github"></i>mouhinu.github.io </a>
+        <span class="contact-item">
+          <i class="fas fa-map-marker-alt"></i> 湖北武汉
+        </span>
+      </div>
+    </header>
+
+    <main>
+      <!-- 求职意向 -->
+      <section class="section">
+        <h2 class="section-title">
+          <i class="fas fa-bullseye"></i>🎯 求职意向
+        </h2>
+        <div class="item">
+          <div class="item-description job-info">
+            <div class="job-item">
+              <strong>职位:</strong>
+              <span>Java资深软件开发工程师 / 项目经理 / 项目Leader</span>
+            </div>
+            <div class="job-item">
+              <strong>薪资:</strong>
+              <span>15-25K/月</span>
+            </div>
+            <div class="job-item">
+              <strong>到岗时间:</strong>
+              <span>半月内/可面议</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 专业技能 -->
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-tools"></i>🛠️ 专业技能</h2>
+        <ul>
+          <li><strong>核心技术栈</strong>: Java 、Spring Boot、Spring Cloud、Spring MVC、MyBatis/MyBatis-Plus</li>
+          <li><strong>分布式架构</strong>: 微服务架构设计、服务治理、API网关、注册中心、配置中心、链路追踪、分布式事务</li>
+          <li><strong>中间件与存储</strong>: MySQL、Redis、MongoDB、RocketMQ/Kafka、Oracle</li>
+          <li><strong>其他语言</strong>: C# (.NET Core)、Go、C/C++</li>
+          <li><strong>云原生技术</strong>: Docker、Kubernetes、DevOps、CI/CD、监控告警(Prometheus/Grafana)</li>
+          <li><strong>工具与平台</strong>: Git、Maven/Gradle、阿里云(EDAS/HSF/OSS)、Linux、Nginx</li>
+          <li><strong>架构设计</strong>: 领域驱动设计(DDD)、设计模式、分布式系统设计、性能调优、系统重构</li>
+          <li><strong>管理能力</strong>: 技术团队管理(10+人)、项目管理(PMP)、敏捷开发、技术规划、人才培养</li>
+        </ul>
+      </section>
+
+      <!-- 工作与项目经历 -->
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-briefcase"></i>💼 工作与项目经历</h2>
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">REOS契筑平台 | 资深技术专家 | 阿里巴巴集团 | 武汉佰钧成技术有限责任公司 </div>
+              <div class="item-subtitle">项目Leader / 核心研发 /架构设计</div>
+            </div>
+            <div class="item-date">2020.01 - 2025.11</div>
+          </div>
+          <div class="item-description">
+            <p>
+              作为REOS契筑平台核心技术负责人，主导建筑行业数字化转型解决方案的架构设计与落地实施。
+              统筹工程管理、设计管理、供应商管理、成本采购等核心业务域的系统建设，构建覆盖建筑全生命周期的数字化协同平台。
+              从0到1搭建微服务架构体系，设计高可用、高并发、可扩展的技术方案，支撑日均百万级数据处理和万级用户并发访问。
+              建立技术规范与研发体系，主导代码评审机制，推动团队技术能力提升和工程质量保障。
+            </p>
+            <div class="project-section">
+              <h4>📋 成本采购系统、供应商管理 (2023.6 - 2025.10)</h4>
+              <p>项目目标: <strong>守合规、保效率</strong></p>
+              <p>
+                承接外部团队遗留系统，主导架构全面升级与核心业务重构。采用领域驱动设计(DDD)理念重新梳理业务边界，将单体应用拆分为微服务架构，实现业务模块解耦和独立部署。
+                针对高并发场景进行性能优化，通过引入分布式缓存、异步消息队列、数据库分库分表等技术手段，将系统响应时间降低60%，支撑峰值QPS从500提升至5000+。
+                构建完善的安全防护体系，实现细粒度权限控制和数据脱敏，满足金融级安全合规要求。建立可观测性体系，集成链路追踪、性能监控、日志分析，大幅提升问题定位效率。
+                推动研发流程标准化，建立代码质量门禁，单元测试覆盖率从30%提升至85%，生产环境缺陷率下降75%。
+              </p>  
+              <ul class="project-achievements">
+                <li><i class="fas fa-check"></i>1、截止25年11月,维护管理2000+各行业的供应商,超12万用户的管理与维护</li>
+                <li><i class="fas fa-check"></i>2、截止25年11月,系统采购中金额超2,741,509万元(总量400亿),维护生效合同2000+,涉及采购需求2300+</li>
+                <li><i class="fas fa-check"></i>3、截止25年11月,承接超 <strong>9000+单据,60000+任务量</strong> 的业务场景审批</li>
+              </ul>
+            </div>
+            <div class="project-section">
+              <h4>📋 设计管理系统 (2022.7 - 2023.6)</h4>
+              <p>项目目标: <strong>保准确、提效率</strong></p>
+              <p>
+                基于云原生架构构建企业级设计管理SaaS平台，解决建筑工程领域设计文件版本控制、协同设计、图纸一致性等行业痛点。
+                采用微前端+微服务架构，实现多租户数据隔离与个性化定制，支持10+业务场景的快速接入与扩展。
+                自研图纸比对算法和在线协同编辑引擎，实现CAD图纸的实时协作与版本管理，将设计变更响应时间从小时级缩短至分钟级。
+                构建分布式文件存储系统，采用对象存储+CDN加速，支持100TB+海量设计文件的高效存储与秒级访问。
+              </p>
+              <ul class="project-achievements">
+                <li><i class="fas fa-check"></i>1、<strong>SAAS</strong>化产品设计,天然支持承接多租户不同业务场景</li>
+                <li><i class="fas fa-check"></i>2、截止23年07月,管理各业务场景下的文件总量 <strong>100TB+</strong></li>
+                <li><i class="fas fa-check"></i>3、截止23年07月,承接 <strong>10余</strong> 业务场景,包含工程、设计、审批、成本多个业务线</li>
+              </ul>
+            </div>
+            <div class="project-section">
+              <h4>📋 工程管理系统 (2020.1 - 2022.6)</h4>
+              <p>项目目标: <strong>控风险、保交付、优体验、提质量</strong></p>
+              <p>
+                主导建筑工程现场管理系统的架构设计与核心模块开发，构建覆盖质量、安全、进度、成本的全方位数字化管控平台。
+                创新性地解决弱网/无网环境下的数据同步难题，采用边缘计算+本地缓存+增量同步技术方案，实现现场数据100%完整采集与实时上传。
+                设计高可扩展的微服务架构，将传统单体应用拆分为20+独立服务，支撑日均千万级数据处理与万级并发用户访问。
+                引入时序数据库和分布式缓存技术，构建高性能数据存储层，将报表生成时间从小时级优化至分钟级，现场问题处理效率提升300%。
+                构建智能预警系统，基于规则引擎和机器学习算法实现风险预测与主动预警，现场安全事故率下降40%，质量问题率下降30%。
+              </p>
+              <ul class="project-achievements">
+                <li><i class="fas fa-check"></i>1、截止22年06月,产品同时服务阿里、蚂蚁、浙大多家客户</li>
+                <li><i class="fas fa-check"></i>2、截止22年06月,管理项目 <strong>现场19万+,查验30万+,总计超100万 </strong>工程项目现场问题</li>
+                <li><i class="fas fa-check"></i>3、截止22年06月,服务项目64个</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-tag java-tag">Java</span>
+            <span class="tech-tag spring-tag">Spring Boot</span>
+            <span class="tech-tag">RPC(HSF/Dubbo)</span>
+            <span class="tech-tag">RocketMQ</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">EDAS、DRDS、OSS</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">智慧园区 | 技术专家 | 阿里巴巴集团 | 武汉佰钧成技术有限责任公司</div>
+              <div class="item-subtitle">核心研发 / 项目Leader</div>
+            </div>
+            <div class="item-date">2016.07 - 2019.12</div>
+          </div>
+          <div class="item-description">
+            
+            <p>作为智慧园区平台技术负责人，从0到1构建覆盖办公、商业、物业等多元业态的数字化运营平台。主导平台整体技术架构演进，从单体应用到微服务架构再到云原生架构的持续升级，支撑业务规模10倍增长。建立技术中台体系，抽象通用业务能力，实现业务组件的复用与快速组装，新业务上线周期从月缩短至周。带领并协调超过30人技术团队，建立完善的研发规范与质量体系，培养多名核心技术骨干。</p>
+            <div class="project-section">
+              <h4>📋 物业管理 (2018.5 - 2019.12)</h4>
+              <p>
+                针对外采系统无法满足复杂物业管理场景的问题，主导系统架构重构与优化升级。引入领域驱动设计(DDD)方法论，重新梳理业务边界，建立清晰的领域模型，将复杂的业务逻辑从200+个耦合的service中解耦重构为50+个高内聚的领域对象，代码可维护性提升60%。
+                设计分层架构模式，构建稳定的领域层、灵活的应用层和可扩展的基础设施层，实现业务规则与技术实现的彻底分离。主导核心业务模块（物业工单、备件管理、设备管理、能耗管理、安防监控）的重构，采用事件驱动架构实现业务流程的灵活编排。
+                建立完善的研发规范体系，制定代码规范、设计规范、测试规范，推动团队工程实践标准化。通过技术分享和code review机制，帮助团队成员快速掌握DDD思想和实践技巧，后续为团队整体研发效率提升40%。
+              </p>
+            </div>
+            <div class="project-section">
+              <h4>📋 商业管理 (2017.07 - 2018.5)</h4>
+              <p>
+                作为商业管理平台技术负责人，主导商家移动端（App+支付宝小程序）全栈技术方案设计与落地。构建基于阿里云平台的高可用分布式服务体系，采用EDAS+DRDS+HSF+OSS技术栈，实现服务弹性伸缩与故障自动恢复，系统可用性达到99.9%。
+                设计标准化API网关，统一外部平台接入规范，成功对接IB平台、实想等10+外部系统，实现数据互通与业务协同。主导用户中心、支付中心、消息中心等内部平台的深度集成，构建完整的商业生态闭环。
+                建立跨团队协作机制，协调产品、运营、测试、运维等多方资源，推动项目按期高质量交付。制定详细的技术对接文档和接入指南，为后续业务团队提供标准化接入方案，新业务接入周期从2周缩短至3天。
+              </p>
+            </div>
+            <div class="project-section">
+              <h4>📋 智慧办公 (2016.07 - 2017.06)</h4>
+              <p>
+                作为智慧办公平台创始团队成员，从0到1构建企业级办公数字化平台。主导核心服务（组织架构、权限管理、会议室、访客、小邮局、账单等20+业务模块）的架构设计与开发，采用领域驱动设计思想，建立高内聚、低耦合的微服务架构，支撑平台后续快速扩展。
+                深度实践阿里云原生技术体系，基于HSF、Diamond、Tair等中间件构建高可用分布式服务集群，实现服务自动注册发现、配置动态管理、分布式缓存加速，系统具备弹性伸缩能力，支持万级用户并发访问。
+                设计开放平台架构，将核心业务能力以API形式对外输出，构建完整的生态体系。建立7×24小时运维保障体系，制定应急响应流程和问题处理规范，生产环境故障平均恢复时间(MTTR)控制在30分钟内。
+                负责技术团队建设与人才培养，参与核心技术人才招聘，建立完善的培训体系和mentor机制，帮助新成员快速融入并成长为团队骨干。
+              </p>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-tag java-tag">Java</span>
+            <span class="tech-tag spring-tag">Spring/SpringMVC</span>
+            <span class="tech-tag">RPC(HSF/Dubbo)</span>
+            <span class="tech-tag">Golang</span>
+            <span class="tech-tag">RocketMQ</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Redis</span>
+            <span class="tech-tag">EDAS、DRDS、OSS</span>
+            <span class="tech-tag">DDD</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">更早项目经历| JAVA高级软件工程师 | 对日开发 |方正国际软件（武汉）有限公司 </div>
+              <div class="item-subtitle">全栈/服务开发</div>
+            </div>
+            <div class="item-date">2012.07 - 2016.07</div>
+          </div>
+          <div class="item-description">
+            <div class="project-section">
+              <h4></h4>
+              <p>
+                担任核心技术骨干，负责每日新闻、朝日新闻、Epoch贩卖店等多个核心业务系统的架构设计与开发维护。深度参与跨国项目全生命周期管理，与日本客户建立高效沟通机制，准确理解业务需求并转化为技术方案，项目交付满意度达95%以上。
+                主导跨语言系统集成，设计C#/Java混合架构解决方案，实现不同技术栈间的数据互通与业务协同。自研文件解析引擎和通信中间件，解决Shift-JIS编码、EUC-JP编码等多字节字符集处理难题，确保日语文档的准确解析与存储。
+                负责系统性能调优与稳定性保障，通过代码优化、数据库调优、缓存策略等手段，将核心业务流程处理时间缩短50%，系统可用性提升至99.5%。开发自动化运维工具集（C语言），实现日志分析、性能监控、故障预警等功能，大幅提升运维效率。
+                建立完善的开发规范与文档体系，推动团队工程实践标准化，为后续项目积累可复用的技术资产。
+              </p>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-tag java-tag">Java</span>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">C</span>
+            <span class="tech-tag">Oracle</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+        </div>
+      </section>
+      <!-- 教育背景 -->
+      <section class="section">
+        <h2 class="section-title">
+          <i class="fas fa-graduation-cap"></i>🎓 教育背景
+        </h2>
+        <div class="item">
+          <div class="item-header">
+            <div>
+              <div>武汉大学 <span class="highlight-separator">|</span> 行政管理</div>
+            </div>
+            <div class="item-date">2015~2018</div>
+          </div>
+          <div class="item-header">
+            <div>
+              <div>湖北民族学院 <span class="highlight-separator">|</span> 计算机科学与技术</div>
+            </div>
+            <div class="item-date">2009~2012</div>
+          </div>
+        </div>         
+      </section>
+
+      <!-- 证书与荣誉 -->
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-award"></i>🏆 证书与荣誉</h2>
+        <div class="certifications">
+          <div class="cert-item">
+            <div style="font-weight: 600; color: var(--primary)">
+              PMP项目管理专业人士认证、CSPM2
+            </div>
+            <div class="cert-description">
+              2023年获得
+            </div>
+          </div>
+          
+          <div class="cert-item">
+            <div style="font-weight: 600; color: var(--primary)">
+              优秀员工
+            </div>
+            <div class="cert-description">
+              2017,2018,2019,2020年获得
+            </div>
+          </div>
+          <div class="cert-item">
+            <div style="font-weight: 600; color: var(--primary)">
+              全国大学生数学建模竞赛全国二等奖
+            </div>
+            <div class="cert-description">
+              （CUMCM-2011）
+            </div>
+          </div>
+      </section>
+
+      <!-- 自我评价 -->
+      <section class="section">
+        <h2 class="section-title"><i class="fas fa-heart"></i>📋 自我评价</h2>
+        <ul>
+          <li>拥有<strong>10年</strong>企业级应用开发经验，专注于高可用、高性能分布式系统架构。</li>
+          <li>具备<strong>从0到1构建</strong>数据化平台及主导大型系统重构的<strong>攻坚能力</strong>。</li>
+          <li>出色的<strong>跨团队协作与项目管理能力</strong>，能有效推动技术方案落地并解决业务痛点。</li>
+          <li>始终秉持<strong>从客户视角出发</strong>的理念，追求技术为业务创造实际价值。</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        最后更新于 <span id="currentYear"></span> 年
+        <span id="currentMonth"></span> 月 | 本简历由 GitHub Pages 托管
+      </p>
+      <p style="margin-top: 5px; font-size: 0.85rem">
+        © 蒙斌. Java资深软件开发工程师
+      </p>
+    </footer>
+
+    <script>
+      // 主题切换功能
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = themeToggle.querySelector("i");
+      // 初始化主题
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+      themeIcon.className =
+        savedTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+
+        document.documentElement.setAttribute("data-theme", newTheme);
+        themeIcon.className =
+          newTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+        localStorage.setItem("theme", newTheme);
+      });
+
+      // PDF导出功能（纯JavaScript实现方案）
+      document.getElementById("pdfExport").addEventListener("click", function() {
+        // 先弹出缩放提示框
+        alert('提示：如要打印,请在在打印设置中，建议选择"缩放50%"以获得最佳PDF效果。');
+        
+        const pdfExportBtn = document.getElementById("pdfExport");
+        const themeToggleBtn = document.getElementById("themeToggle");
+        
+        // 显示加载提示
+        const loadingToast = document.createElement('div');
+        loadingToast.innerHTML = '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 15px 25px; border-radius: 5px; z-index: 1000; font-size: 14px;">正在生成PDF，请稍候...</div>';
+        document.body.appendChild(loadingToast);
+        
+        // 临时隐藏按钮
+        pdfExportBtn.style.display = "none";
+        themeToggleBtn.style.display = "none";
+        
+        // 强制使用亮色主题以确保PDF效果
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        document.documentElement.setAttribute("data-theme", "light");
+        
+        setTimeout(function() {
+          // 使用浏览器打印功能生成PDF
+          window.print();
+          
+          // 恢复原始状态
+          setTimeout(function() {
+            document.documentElement.setAttribute("data-theme", currentTheme);
+            pdfExportBtn.style.display = "block";
+            themeToggleBtn.style.display = "block";
+            document.body.removeChild(loadingToast);
+          }, 1000);
+        }, 500);
+      });
+      
+      // 增强的PDF导出功能（使用html2pdf库作为备选）
+      function advancedPDFExport() {
+        if (typeof html2pdf === 'undefined') {
+          alert('高级PDF导出功能需要网络连接，将使用浏览器打印功能');
+          document.getElementById("pdfExport").click();
+          return;
+        }
+        
+        const pdfExportBtn = document.getElementById("pdfExport");
+        const themeToggleBtn = document.getElementById("themeToggle");
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        
+        // 隐藏按钮并设置亮色主题
+        pdfExportBtn.style.display = "none";
+        themeToggleBtn.style.display = "none";
+        document.documentElement.setAttribute("data-theme", "light");
+        
+        const element = document.body;
+        const opt = {
+          margin: 10,
+          filename: '蒙斌-Java资深软件开发工程师-简历_' + new Date().toISOString().slice(0, 10) + '.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { 
+            scale: 2, 
+            useCORS: true,
+            letterRendering: true,
+            allowTaint: true
+          },
+          jsPDF: { 
+            unit: 'mm', 
+            format: 'a4', 
+            orientation: 'portrait',
+            compress: true
+          }
+        };
+        
+        html2pdf().set(opt).from(element).save().then(function() {
+          // 恢复原始状态
+          document.documentElement.setAttribute("data-theme", currentTheme);
+          pdfExportBtn.style.display = "block";
+          themeToggleBtn.style.display = "block";
+        }).catch(function(error) {
+          console.error('PDF导出失败:', error);
+          alert('PDF导出失败，将使用浏览器打印功能');
+          document.getElementById("pdfExport").click();
+        });
+      }
+
+      // 自动更新页脚年份和月份（基于文件修改时间）
+      function updateFooterDate() {
+        try {
+          // 获取当前页面的最后修改时间
+          const lastModified = document.lastModified;
+          console.log(`lastModified : ${lastModified}`)
+          
+          if (lastModified && lastModified !== "01/01/1970 00:00:00") {
+            const modifyDate = new Date(lastModified);
+            
+            // 验证日期是否有效
+            if (!isNaN(modifyDate.getTime()) && modifyDate.getFullYear() > 1970) {
+              document.getElementById("currentYear").textContent = modifyDate.getFullYear();
+              document.getElementById("currentMonth").textContent = modifyDate.getMonth() + 1;
+              return;
+            }
+          }
+          
+          // 备选方案1：尝试使用HTTP头信息（如果可用）
+          if (window.performance && window.performance.timing) {
+            const navigationStart = window.performance.timing.navigationStart;
+            const navDate = new Date(navigationStart);
+            if (!isNaN(navDate.getTime())) {
+              document.getElementById("currentYear").textContent = navDate.getFullYear();
+              document.getElementById("currentMonth").textContent = navDate.getMonth() + 1;
+              return;
+            }
+          }
+          
+          // 备选方案2：使用当前时间（最后选择）
+          const now = new Date();
+          document.getElementById("currentYear").textContent = now.getFullYear();
+          document.getElementById("currentMonth").textContent = now.getMonth() + 1;
+          
+        } catch (error) {
+          console.warn('获取文件修改时间失败，使用当前时间:', error);
+          const now = new Date();
+          document.getElementById("currentYear").textContent = now.getFullYear();
+          document.getElementById("currentMonth").textContent = now.getMonth() + 1;
+        }
+      }
+      
+      // 页面加载时更新页脚日期
+      updateFooterDate();
+      // 添加打印简历的快捷键提示
+      document.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "p") {
+          e.preventDefault();
+          alert('提示：在打印设置中，建议选择"背景图形"选项以获得最佳效果。');
+          setTimeout(() => window.print(), 100);
+        }
+      });
+
+      console.log("个人简历已加载!");
+    </script>
+  </body>
+</html>

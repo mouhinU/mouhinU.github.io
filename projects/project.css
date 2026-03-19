@@ -122,13 +122,51 @@
       .project-section {
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 20px;
         margin-bottom: 20px;
         background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
+        transition: background-color 0.3s ease;
+      }
+
+      .project-header:hover {
+        background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+      }
+
+      .project-header h4 {
+        margin: 0;
+        font-size: 1.2em;
+        color: var(--primary);
+      }
+
+      .toggle-icon {
+        transition: transform 0.3s ease;
+        color: var(--text-light);
+        font-size: 1em;
+      }
+
+      .project-content {
+        padding: 0 20px 20px 20px;
+        max-height: 1000px;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+      }
+
+      .project-content.collapsed {
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
       }
       
       .project-section::before {

@@ -73,11 +73,16 @@ function createProjectElement(phase, index) {
 
         return `
         <div class="project-section">
-          <h4>${project.name}</h4>
-          ${targetHtml}
-          <p><strong>项目背景:</strong> ${project.background}</p>
-          <p><strong>工作职责:</strong> ${project.duty}</p>
-          ${achievementsHtml}
+          <div class="project-header" onclick="toggleProject(this)">
+            <h4>${project.name}</h4>
+            <i class="fas fa-chevron-down toggle-icon"></i>
+          </div>
+          <div class="project-content">
+            ${targetHtml}
+            <p><strong>项目背景:</strong> ${project.background}</p>
+            <p><strong>工作职责:</strong> ${project.duty}</p>
+            ${achievementsHtml}
+          </div>
         </div>
       `;
       })
@@ -122,6 +127,30 @@ function createProjectElement(phase, index) {
   `;
 
   return div;
+}
+
+/**
+ * 切换项目内容的显示/隐藏状态
+ * @param {HTMLElement} header - 项目标题元素
+ */
+function toggleProject(header) {
+  const projectSection = header.closest(".project-section");
+  const content = projectSection.querySelector(".project-content");
+  const icon = header.querySelector(".toggle-icon");
+
+  if (content.classList.contains("collapsed")) {
+    // 展开内容
+    content.classList.remove("collapsed");
+    content.style.maxHeight = content.scrollHeight + "px";
+    icon.classList.remove("fa-chevron-right");
+    icon.classList.add("fa-chevron-down");
+  } else {
+    // 收缩内容
+    content.classList.add("collapsed");
+    content.style.maxHeight = "0";
+    icon.classList.remove("fa-chevron-down");
+    icon.classList.add("fa-chevron-right");
+  }
 }
 
 /**

@@ -53,9 +53,10 @@ function createProjectElement(phase, index) {
   if (phase.projects && phase.projects.length > 0) {
     phaseHtml = phase.projects
       .map((proj) => {
-        let targetHtml = proj.target
-          ? `<p><strong>项目目标:</strong> ${proj.target}</p>`
-          : "";
+        // let targetHtml = proj.target
+        //   ? `<p><strong>项目目标:</strong> ${proj.target}</p>`
+        //   : "";
+        let targetHtml = "";
         let achievementsHtml =
           proj.achievement && proj.achievement.length > 0
             ? `<p><strong>项目成果:</strong></p>

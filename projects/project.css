@@ -197,25 +197,22 @@
       }
       
       .project-achievements li::before {
-        content: "✓";
+        content: "📌";
         position: absolute;
         left: 0;
         top: 3px;
         color: var(--spring-green);
         font-weight: bold;
         font-size: 1rem;
-        background: rgba(109, 179, 63, 0.1);
         width: 18px;
         height: 18px;
         border-radius: 50%;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--spring-green);
       }
       
       .project-achievements li i.fas.fa-check {
-        display: none; /* 隐藏原有的图标，使用自定义样式 */
+        /* 隐藏原有的图标，使用自定义样式 */
+        display: none; 
       }
       
       /* ===== 技术栈标签样式优化 ===== */

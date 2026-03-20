@@ -25,17 +25,70 @@
       
       /* ===== 项目卡片样式优化 ===== */
       .item {
-        animation: fadeIn 0.6s ease-in-out;
-        margin-bottom: 30px;
-        padding: 25px;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        background: var(--bg);
-        box-shadow: var(--shadow);
-        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        position: relative;
-        overflow: hidden;
-      }
+  animation: fadeIn 0.6s ease-in-out;
+  margin-bottom: 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Phase 收缩/展开样式 */
+.phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.phase-header:hover {
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+}
+
+.phase-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  margin-right: 20px;
+}
+
+.phase-toggle-icon {
+  transition: transform 0.3s ease;
+  color: var(--text-light);
+  font-size: 1.1em;
+}
+
+/* 阶段性总结样式 - 始终显示 */
+.phase-summary {
+  padding: 15px 25px;
+  background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.phase-summary p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.phase-content {
+  padding: 0 25px 25px 25px;
+  max-height: 2000px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.phase-content.collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
       
       .item::before {
         content: "";

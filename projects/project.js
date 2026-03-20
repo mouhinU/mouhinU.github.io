@@ -1,5 +1,4 @@
 // 项目数据加载和渲染模块 负责从JSON文件加载项目数据并动态渲染到页面
-
 /**
  * 异步加载项目数据
  * 从projects.json文件获取数据并渲染到页面
@@ -114,20 +113,23 @@ function createProjectElement(phase, index) {
   const hasProjects = phase.projects && phase.projects.length > 0;
 
   div.innerHTML = `
-    <div class="item-header">
-      <div>
-        <div class="item-title">${cleanTitle}</div>
-        <div class="item-subtitle">${phase.job}</div>
-      </div>
-      <div style="display: flex; align-items: center; gap: 15px;">
-        ${date ? `<div class="item-date">${date}</div>` : ""}
+    <div class="phase-header" onclick="togglePhase(this)">
+      <div class="phase-title-container">
+        <div>
+          <div class="item-title">${cleanTitle}</div>
+          <div class="item-subtitle">${phase.job}</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+          ${date ? `<div class="item-date">${date}</div>` : ""}
+          <i class="fas fa-chevron-down phase-toggle-icon"></i>
+        </div>
       </div>
     </div>
-    <div class="item-description">
-      ${phase.description ? `<p> <strong> 阶段性总结:</strong> ${phase.description}</p>` : ""}
+    ${phase.description ? `<div class="phase-summary"><p> <strong> 阶段性总结:</strong> ${phase.description}</p></div>` : ""}
+    <div class="phase-content">
       ${hasProjects ? phaseHtml : ""}
+      ${stacksHtml}
     </div>
-    ${stacksHtml}
   `;
 
   return div;
@@ -141,6 +143,30 @@ function toggleProject(header) {
   const projectSection = header.closest(".project-section");
   const content = projectSection.querySelector(".project-content");
   const icon = header.querySelector(".toggle-icon");
+
+  if (content.classList.contains("collapsed")) {
+    // 展开内容
+    content.classList.remove("collapsed");
+    content.style.maxHeight = content.scrollHeight + "px";
+    icon.classList.remove("fa-chevron-right");
+    icon.classList.add("fa-chevron-down");
+  } else {
+    // 收缩内容
+    content.classList.add("collapsed");
+    content.style.maxHeight = "0";
+    icon.classList.remove("fa-chevron-down");
+    icon.classList.add("fa-chevron-right");
+  }
+}
+
+/**
+ * 切换 phase（项目阶段）内容的显示/隐藏状态
+ * @param {HTMLElement} header - phase 标题元素
+ */
+function togglePhase(header) {
+  const phaseElement = header.closest(".item");
+  const content = phaseElement.querySelector(".phase-content");
+  const icon = header.querySelector(".phase-toggle-icon");
 
   if (content.classList.contains("collapsed")) {
     // 展开内容

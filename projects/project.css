@@ -144,10 +144,26 @@
         background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
       }
 
-      .project-header h4 {
+      .project-title-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1;
+        margin-right: 20px;
+      }
+      
+      .project-title-container h4 {
         margin: 0;
         font-size: 1.2em;
         color: var(--primary);
+      }
+      
+      .project-lifecycle {
+        color: var(--text-light);
+        font-size: 0.9em;
+        font-weight: normal;
+        margin-left: 20px;
+        white-space: nowrap;
       }
 
       .toggle-icon {

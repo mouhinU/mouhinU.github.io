@@ -74,7 +74,10 @@ function createProjectElement(phase, index) {
         return `
         <div class="project-section">
           <div class="project-header" onclick="toggleProject(this)">
-            <h4>${project.name}</h4>
+            <div class="project-title-container">
+              <h4>${project.name}</h4>
+              <span class="project-lifecycle">${project.lifecycle}</span>
+            </div>
             <i class="fas fa-chevron-down toggle-icon"></i>
           </div>
           <div class="project-content">
@@ -89,6 +92,7 @@ function createProjectElement(phase, index) {
       .join("");
   }
 
+  // 技术栈信息
   let stacksHtml = "";
   if (phase.stacks && phase.stacks.length > 0) {
     stacksHtml = `

@@ -205,6 +205,7 @@
         
         // 显示加载提示
         const loadingToast = document.createElement('div');
+        loadingToast.className = 'pdf-loading-toast';
         loadingToast.innerHTML = '<div style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); color: white; padding: 15px 25px; border-radius: 5px; z-index: 1000; font-size: 14px;">正在生成PDF，请稍候...</div>';
         document.body.appendChild(loadingToast);
         

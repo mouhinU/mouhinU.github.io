@@ -493,6 +493,9 @@ footer {
   .theme-toggle {
     display: none;
   }
+  .pdf-export {
+    display: none;
+  }
   footer {
     display: none;
   }
@@ -503,5 +506,9 @@ footer {
   .section {
     box-shadow: none;
     border: 1px solid #ddd;
+  }
+  /* 隐藏PDF生成时的加载提示 */
+  div[style*="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8)"] {
+    display: none !important;
   }
 }

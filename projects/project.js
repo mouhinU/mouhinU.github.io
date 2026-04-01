@@ -77,9 +77,9 @@ function createProjectElement(phase, index) {
               <h4>${project.name}</h4>
               <span class="project-lifecycle">${project.lifecycle}</span>
             </div>
-            <i class="fas fa-chevron-down toggle-icon"></i>
+            <i class="fas fa-chevron-right toggle-icon"></i>
           </div>
-          <div class="project-content">
+          <div class="project-content collapsed">
             ${targetHtml}
             <p><strong>项目背景:</strong> ${project.background}</p>
             <p><strong>工作职责:</strong> ${project.duty}</p>
@@ -184,12 +184,35 @@ function togglePhase(header) {
 }
 
 /**
+ * 初始化项目折叠状态
+ * 只折叠项目层级，保持阶段层级展开
+ */
+function initProjectCollapsedState() {
+  // 获取所有项目内容区域并设置为折叠状态
+  const projectContents = document.querySelectorAll(".project-content");
+  projectContents.forEach((content) => {
+    content.classList.add("collapsed");
+    content.style.maxHeight = "0";
+  });
+
+  // 设置所有项目图标为向右状态（折叠状态）
+  const projectIcons = document.querySelectorAll(".toggle-icon");
+  projectIcons.forEach((icon) => {
+    icon.classList.remove("fa-chevron-down");
+    icon.classList.add("fa-chevron-right");
+  });
+}
+
+/**
  * 初始化项目数据加载
  * 在DOM加载完成后自动执行
  */
 function initProjects() {
   if (document.getElementById("projects-container")) {
-    loadProjects();
+    loadProjects().then(() => {
+      // 数据加载完成后初始化项目折叠状态
+      initProjectCollapsedState();
+    });
   }
 }
 
